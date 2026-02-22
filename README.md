@@ -1,0 +1,1 @@
+# Tabular-results-of-taxicab-numbers
