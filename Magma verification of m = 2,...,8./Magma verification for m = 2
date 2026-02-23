@@ -1,0 +1,31 @@
+// Work in the quadratic field Q(sqrt(3))
+K<r> := QuadraticField(3);
+
+// Define the expressions for A2, B2, C2, D2
+A2 := function(c1)
+    return (-54 + 9*((15 + 7*r)*(7 + 4*r)^c1 + (15 - 7*r)*(7 - 4*r)^c1))/4 + 27;
+end function;
+
+B2 := function(c1)
+    return (-162 + 9*((5*r + 7)*(7 + 4*r)^c1 + (7 - 5*r)*(7 - 4*r)^c1))/4;
+end function;
+
+C2 := function(c1)
+    return (-54 + 9*((15 + 7*r)*(7 + 4*r)^c1 + (15 - 7*r)*(7 - 4*r)^c1))/4;
+end function;
+
+D2 := function(c1)
+    return (-162 + 9*((5*r + 7)*(7 + 4*r)^c1 + (7 - 5*r)*(7 - 4*r)^c1))/4 + 81;
+end function;
+
+// Compute values for c1 = 0..9
+for c1 in [0..9] do
+    A := A2(c1);
+    B := B2(c1);
+    C := C2(c1);
+    D := D2(c1);
+    S := A^3 + B^3;
+    
+    // Coerce to integers (they simplify automatically)
+    print c1, Integers()!A, Integers()!B, Integers()!C, Integers()!D, Integers()!S;
+end for;
