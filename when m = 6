@@ -1,6 +1,8 @@
+
+
 \begin{table}[h]
 \centering
-\caption{Solutions to \( A^3 + B^3 = C^3 + D^3 \) for \(A_6,B_6,C_6,D_6\) and \( c_1 = 0 \) to 9}
+\caption{Solutions to \( A^3 + B^3 = C^3 + D^3 \) for \( c_1 = 0 \) to 9}
 \begin{tabular}{cccccc}
 \toprule
 \( c_1 \) & \( A \) & \( B \) & \( C \) & \( D \) & \( A^3 + B^3 \) \\
