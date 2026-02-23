@@ -1,0 +1,38 @@
+\subsection{\texorpdfstring{$m = 5$}{m = 5}}
+
+// Work in Q(sqrt(3))
+K<r> := QuadraticField(3);
+
+// Define A5, B5, C5, D5
+A5 := function(c1)
+    return (-1458 + 243*((15 + 7*r)*(7 + 4*r)^c1 
+         + (15 - 7*r)*(7 - 4*r)^c1))/4 + 729;
+end function;
+
+B5 := function(c1)
+    return (-4374 + 243*((5*r + 7)*(7 + 4*r)^c1 
+         + (7 - 5*r)*(7 - 4*r)^c1))/4;
+end function;
+
+C5 := function(c1)
+    return (-1458 + 243*((15 + 7*r)*(7 + 4*r)^c1 
+         + (15 - 7*r)*(7 - 4*r)^c1))/4;
+end function;
+
+D5 := function(c1)
+    return (-4374 + 243*((5*r + 7)*(7 + 4*r)^c1 
+         + (7 - 5*r)*(7 - 4*r)^c1))/4 + 2187;
+end function;
+
+// Compute first 10 values
+for c1 in [0..9] do
+    A := A5(c1);
+    B := B5(c1);
+    C := C5(c1);
+    D := D5(c1);
+    S := A^3 + B^3;
+
+    print c1, Integers()!A, Integers()!B,
+          Integers()!C, Integers()!D,
+          Integers()!S;
+end for;
