@@ -1,0 +1,36 @@
+// Work in Q(sqrt(3))
+K<r> := QuadraticField(3);
+
+// Define A8, B8, C8, D8
+A8 := function(c1)
+    return (-39366 + 6561*((15 + 7*r)*(7 + 4*r)^c1 
+         + (15 - 7*r)*(7 - 4*r)^c1))/4 + 19683;
+end function;
+
+B8 := function(c1)
+    return (-118098 + 6561*((5*r + 7)*(7 + 4*r)^c1 
+         + (7 - 5*r)*(7 - 4*r)^c1))/4;
+end function;
+
+C8 := function(c1)
+    return (-39366 + 6561*((15 + 7*r)*(7 + 4*r)^c1 
+         + (15 - 7*r)*(7 - 4*r)^c1))/4;
+end function;
+
+D8 := function(c1)
+    return (-118098 + 6561*((5*r + 7)*(7 + 4*r)^c1 
+         + (7 - 5*r)*(7 - 4*r)^c1))/4 + 59049;
+end function;
+
+// Compute first 10 values
+for c1 in [0..9] do
+    A := A8(c1);
+    B := B8(c1);
+    C := C8(c1);
+    D := D8(c1);
+    S := A^3 + B^3;
+
+    print c1, Integers()!A, Integers()!B,
+          Integers()!C, Integers()!D,
+          Integers()!S;
+end for;
