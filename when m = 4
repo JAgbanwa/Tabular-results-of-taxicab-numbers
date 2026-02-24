@@ -1,3 +1,5 @@
+\subsection{\texorpdfstring{$m = 4$}{m = 4}}
+
 \begin{table}[h]
 \centering
 \caption{Solutions to \( A^3 + B^3 = C^3 + D^3 \) for \(A_4,B_4,C_4,D_4\) and \( c_1 = 0 \) to 9}
