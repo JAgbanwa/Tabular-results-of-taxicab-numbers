@@ -7,13 +7,13 @@ $A(c_1,m)^3 + B(c_1,m)^3 = C(c_1,m)^3 + D(c_1,m)^3$ for $m = 2,3,4,5,6,7,8$.
 
 where 
 
-$A_m = \frac{-2 \cdot 3^{m+1} + 3^m \cdot \left[(15 - 7\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (15 + 7\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4} + 3^{m+1}$
+$A(c_1,m) = \frac{-2 \cdot 3^{m+1} + 3^m \cdot \left[(15 - 7\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (15 + 7\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4} + 3^{m+1}$
 
-$B_m = \frac{-2 \cdot 3^{m+2} + 3^{m} \cdot \left[(7 - 5\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (7 + 5\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4}$
+$B(c_1,m) = \frac{-2 \cdot 3^{m+2} + 3^{m} \cdot \left[(7 - 5\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (7 + 5\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4}$
 
-$C_m = \frac{ -2 \cdot 3^{m+1} + 3^m \cdot \left[(15 -7\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (15 + 7\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4}$
+$C(c_1,m) = \frac{ -2 \cdot 3^{m+1} + 3^m \cdot \left[(15 -7\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (15 + 7\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4}$
 
-$D_m = \frac{-2 \cdot 3^{m+2} + 3^{m} \cdot \left[(7 - 5\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (7 + 5\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4} + 3^{m+2}$
+$D(c_1,m) = \frac{-2 \cdot 3^{m+2} + 3^{m} \cdot \left[(7 - 5\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (7 + 5\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4} + 3^{m+2}$
 
 The case for $m = 0$ is accepted to the On-Line Encyclopedia of Integer Sequences as [A384106](https://oeis.org/A384106)
 
