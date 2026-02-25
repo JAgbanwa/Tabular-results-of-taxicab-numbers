@@ -1,5 +1,5 @@
 # Tabular-results-of-taxicab-numbers
-This repository is purposely to contain the tabular results of closed form generator of taxicab numbers in [Generating Infinitely Many Taxicab Numbers Expressible as the Sum of Two Positive Cubes in Two Distinct Ways](https://figshare.com/articles/preprint/Generating_Infinitely_Many_Taxicab_Numbers_Expressible_as_the_Sum_of_Two_Positive_Cubes_in_Two_Distinct_Ways/30390145?file=62130630) 
+This repository is purposely to contain the tabular results of closed form generator of taxicab numbers in my preprint [Generating Infinitely Many Taxicab Numbers Expressible as the Sum of Two Positive Cubes in Two Distinct Ways](https://figshare.com/articles/preprint/Generating_Infinitely_Many_Taxicab_Numbers_Expressible_as_the_Sum_of_Two_Positive_Cubes_in_Two_Distinct_Ways/30390145?file=62130630) 
 
 of the form
 
