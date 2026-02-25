@@ -1,7 +1,19 @@
 # Tabular-results-of-taxicab-numbers
-This repository is purposely to contain the tabular results of closed form generator of taxicab numbers in [this paper] of the form
+This repository is purposely to contain the tabular results of closed form generator of taxicab numbers in [Generating Infinitely Many Taxicab Numbers Expressible as the Sum of Two Positive Cubes in Two Distinct Ways](https://figshare.com/articles/preprint/Generating_Infinitely_Many_Taxicab_Numbers_Expressible_as_the_Sum_of_Two_Positive_Cubes_in_Two_Distinct_Ways/30390145?file=62130630) 
+
+of the form
 
 $A(c_1,m)^3 + B(c_1,m)^3 = C(c_1,m)^3 + D(c_1,m)^3$ for $m = 2,3,4,5,6,7,8$.
+
+where 
+
+$A_m = \frac{-2 \cdot 3^{m+1} + 3^m \cdot \left[(15 - 7\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (15 + 7\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4} + 3^{m+1}$
+
+$B_m = \frac{-2 \cdot 3^{m+2} + 3^{m} \cdot \left[(7 - 5\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (7 + 5\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4}$
+
+$C_m = \frac{ -2 \cdot 3^{m+1} + 3^m \cdot \left[(15 -7\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (15 + 7\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4}$
+
+$D_m = \frac{-2 \cdot 3^{m+2} + 3^{m} \cdot \left[(7 - 5\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (7 + 5\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4} + 3^{m+2}$
 
 This repository also contains a folder of Magma verifications of the families of taxicab numbers for each case of $m$ from $m = 2,...,8$
 to further confirm the correctness of these results.
