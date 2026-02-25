@@ -15,5 +15,11 @@ $C_m = \frac{ -2 \cdot 3^{m+1} + 3^m \cdot \left[(15 -7\sqrt{3})\cdot(7 - 4\sqrt
 
 $D_m = \frac{-2 \cdot 3^{m+2} + 3^{m} \cdot \left[(7 - 5\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (7 + 5\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4} + 3^{m+2}$
 
+The case for $m = 0$ is accepted to the On-Line Encyclopedia of Integer Sequences as [A384106](https://oeis.org/A384106)
+
+The case for $m = 1$ appears on the On-Line Encyclopedia of Integer Sequences with the ID: [A389865](https://oeis.org/A389865)
+
+The case for $m = 1$ is on review on the On-Line Encyclopedia of Integer Sequences with the provisional ID: [A389865](https://oeis.org/A389865)
+
 This repository also contains a folder of Magma verifications of the families of taxicab numbers for each case of $m$ from $m = 2,...,8$
 to further confirm the correctness of these results.
