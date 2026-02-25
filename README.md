@@ -19,7 +19,7 @@ The case for $m = 0$ is accepted to the On-Line Encyclopedia of Integer Sequence
 
 The case for $m = 1$ appears on the On-Line Encyclopedia of Integer Sequences with the ID: [A389865](https://oeis.org/A389865)
 
-The case for $m = 1$ is on review on the On-Line Encyclopedia of Integer Sequences with the provisional ID: [A393694](https://oeis.org/A393694)
+The case for $m = 2$ is on review on the On-Line Encyclopedia of Integer Sequences with the provisional ID: [A393694](https://oeis.org/A393694)
 
 This repository also contains a folder of Magma verifications of the families of taxicab numbers for each case of $m$ from $m = 2,...,8$
 to further confirm the correctness of these results.
