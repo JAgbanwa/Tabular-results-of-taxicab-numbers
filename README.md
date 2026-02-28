@@ -15,11 +15,11 @@ $C(c_1,m) = \frac{ -2 \cdot 3^{m+1} + 3^m \cdot \left[(15 -7\sqrt{3})\cdot(7 - 4
 
 $D(c_1,m) = \frac{-2 \cdot 3^{m+2} + 3^{m} \cdot \left[(7 - 5\sqrt{3})\cdot(7 - 4\sqrt{3})^{c_1} + (7 + 5\sqrt{3}) \cdot (7 + 4\sqrt{3})^{c_1}\right]}{4} + 3^{m+2}$
 
-The case for $m = 0$ is accepted to the On-Line Encyclopedia of Integer Sequences as [A384106](https://oeis.org/A384106)
+The case for $m = 0$ is accepted to the On-Line Encyclopedia of Integer Sequences as [A384106](https://oeis.org/A384106).
 
-The case for $m = 1$ appears on the On-Line Encyclopedia of Integer Sequences with the ID: [A389865](https://oeis.org/A389865)
+The case for $m = 1$ appears on the On-Line Encyclopedia of Integer Sequences with the ID: [A389865](https://oeis.org/A389865).
 
-The case for $m = 2$ is under review on the On-Line Encyclopedia of Integer Sequences with the provisional ID: [A393694](https://oeis.org/A393694)
+The case for $m = 2$ is under review on the On-Line Encyclopedia of Integer Sequences with the provisional ID: [A393694](https://oeis.org/A393694).
 
 This repository also contains [a folder](https://github.com/JAgbanwa/Tabular-results-of-taxicab-numbers/tree/main/Magma%20verification%20of%20m%20%3D%202%2C...%2C8.) of Magma verifications of the families of taxicab numbers for each case of $m$ from $m = 2,...,8$
 to further confirm the correctness of these results. 
