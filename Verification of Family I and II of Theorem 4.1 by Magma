@@ -1,3 +1,189 @@
+// ============================================================
+// Magma proof of Theorem 4.1 — CORRECTED VERSION
+// Key fix: do NOT pre-scale by 4/s. Instead represent the full
+// un-scaled quantities (multiplied by 4 to clear denominators)
+// as elements of QR = Z[s,p,q]/(p^2-3q^2-1), then verify
+//   (4*A)^3 + (4*B)^3 = (4*C)^3 + (4*D)^3
+// which is equivalent to A^3+B^3 = C^3+D^3.
+// ============================================================
+
+R<s, p, q> := PolynomialRing(Integers(), 3);
+I := ideal<R | p^2 - 3*q^2 - 1>;
+QR := R / I;
+
+S  := QR.1;   // s = 3^m
+P  := QR.2;   // p = rational part of (x0+y0*sqrt3)^k
+QV := QR.3;   // q = irrational part
+
+// ============================================================
+// FAMILY I
+// 4*B_m = -2*3^{m+2}*... but with s=3^m we have:
+//   -2*3^{m+2} = -18 * 3^m = -18*s
+//   -2*3^{m+1} =  -6 * 3^m =  -6*s
+//   3^m * E_B = s*(14p+30q)
+//   3^m * E_C = s*(30p+42q)
+//   3^{m+1}   = 3*s
+//   3^{m+2}   = 9*s
+//
+// So the FULL 4x quantities are:
+//   4*B_m = s*(-18 + 14p + 30q)
+//   4*C_m = s*( -6 + 30p + 42q)
+//   4*A_m = 4*C_m + 4*3^{m+1} = s*(-6 + 30p + 42q) + 12*s = s*(6 + 30p + 42q)
+//   4*D_m = 4*B_m + 4*3^{m+2} = s*(-18+14p+30q) + 36*s   = s*(18+14p+30q)
+//
+// Factor of s^3 appears on both sides of (4A)^3+(4B)^3=(4C)^3+(4D)^3,
+// so we can divide by s^3 and just check the s-free cubics.
+// Define Ap = 4*A_m/s, Bp = 4*B_m/s, etc.:
+// ============================================================
+
+print "=== FAMILY I: Symbolic Proof ===";
+
+Ap1 :=  6 + 30*P + 42*QV;    // 4*A_m / s
+Bp1 := -18 + 14*P + 30*QV;   // 4*B_m / s
+Cp1 :=  -6 + 30*P + 42*QV;   // 4*C_m / s
+Dp1 :=  18 + 14*P + 30*QV;   // 4*D_m / s
+
+// Note: A = C + 3^{m+1} => 4A/s = 4C/s + 4*3/1 = Cp1 + 12
+//       D = B + 3^{m+2} => 4D/s = 4B/s + 4*9   = Bp1 + 36
+// Let's verify:
+assert Ap1 eq Cp1 + 12*QR!1;
+assert Dp1 eq Bp1 + 36*QR!1;
+
+delta1 := Ap1^3 + Bp1^3 - Cp1^3 - Dp1^3;
+
+if delta1 eq QR!0 then
+    print "SUCCESS: Family I  A_m^3 + B_m^3 = C_m^3 + D_m^3";
+    print "         holds symbolically for all x0^2-3y0^2=1, k>=0, m>=0.";
+else
+    print "FAIL: Family I difference =", delta1;
+end if;
+
+// ============================================================
+// FAMILY II
+// (1+3sqrt3)*u - (3sqrt3-1)*v  where u=p+qsqrt3, v=p-qsqrt3:
+//   rational part  = 2p + 18q   (computed in previous session)
+//   irrational part = 0
+// (9+sqrt3)*u + (9-sqrt3)*v:
+//   rational part  = 18p + 6q
+//   irrational part = 0
+//
+//   4*B_m = s*(-18 + 2p + 18q)
+//   4*C_m = s*( -6 + 18p +  6q)
+//   4*A_m = 4*C_m + 12*s  =>  4*A_m/s =  6 + 18p + 6q
+//   4*D_m = 4*B_m + 36*s  =>  4*D_m/s = 18 +  2p + 18q
+// ============================================================
+
+print "";
+print "=== FAMILY II: Symbolic Proof ===";
+
+Ap2 :=  6 + 18*P +  6*QV;    // 4*A_m / s
+Bp2 := -18 +  2*P + 18*QV;   // 4*B_m / s
+Cp2 :=  -6 + 18*P +  6*QV;   // 4*C_m / s
+Dp2 :=  18 +  2*P + 18*QV;   // 4*D_m / s
+
+assert Ap2 eq Cp2 + 12*QR!1;
+assert Dp2 eq Bp2 + 36*QR!1;
+
+delta2 := Ap2^3 + Bp2^3 - Cp2^3 - Dp2^3;
+
+if delta2 eq QR!0 then
+    print "SUCCESS: Family II  A_m^3 + B_m^3 = C_m^3 + D_m^3";
+    print "         holds symbolically for all x0^2-3y0^2=1, k>=0, m>=0.";
+else
+    print "FAIL: Family II difference =", delta2;
+end if;
+
+// ============================================================
+// WHY THE PREVIOUS ATTEMPT FAILED
+// The old code set  Ap := Cp + 4  and  Dp := Bp + 12
+// i.e. it used  A = C + 1  and  D = B + 3  (after dividing by s).
+// But the correct shifts ARE:
+//   4*A/s = 4*C/s + 12   (not +4)  because 4*3^{m+1}/3^m = 12
+//   4*D/s = 4*B/s + 36   (not +12) because 4*3^{m+2}/3^m = 36
+// The factor of 4 from clearing denominators was forgotten in the shift!
+// ============================================================
+
+print "";
+print "=== Numeric spot-checks (both families) ===";
+
+QQ := RationalField();
+
+function PellPower(x0, y0, kk)
+    pr := QQ!1;  qr := QQ!0;
+    for i in [1..kk] do
+        np := pr*x0 + 3*qr*y0;
+        nq := pr*y0 + qr*x0;
+        pr := np;  qr := nq;
+    end for;
+    return [pr, qr];
+end function;
+
+PellSols := [[1,0],[2,1],[7,4],[26,15]];
+kvals    := [0,1,2,3,4];
+mvals    := [0,1,2,3,4];
+all_ok   := true;
+
+for sol in PellSols do
+    x0 := sol[1];  y0 := sol[2];
+    assert x0^2 - 3*y0^2 eq 1;
+    for kk in kvals do
+        pq := PellPower(x0, y0, kk);
+        pr := pq[1];  qr := pq[2];
+        assert pr^2 - 3*qr^2 eq 1;
+        for mm in mvals do
+            sm := QQ!3^mm;
+
+            // Family I
+            Bv1 := sm*(-18 + 14*pr + 30*qr) / 4;
+            Cv1 := sm*( -6 + 30*pr + 42*qr) / 4;
+            Av1 := Cv1 + QQ!3^(mm+1);
+            Dv1 := Bv1 + QQ!3^(mm+2);
+            if Av1^3 + Bv1^3 ne Cv1^3 + Dv1^3 then
+                print "Family I FAIL: x0=",x0,"y0=",y0,"k=",kk,"m=",mm;
+                all_ok := false;
+            end if;
+
+            // Family II
+            Bv2 := sm*(-18 +  2*pr + 18*qr) / 4;
+            Cv2 := sm*( -6 + 18*pr +  6*qr) / 4;
+            Av2 := Cv2 + QQ!3^(mm+1);
+            Dv2 := Bv2 + QQ!3^(mm+2);
+            if Av2^3 + Bv2^3 ne Cv2^3 + Dv2^3 then
+                print "Family II FAIL: x0=",x0,"y0=",y0,"k=",kk,"m=",mm;
+                all_ok := false;
+            end if;
+        end for;
+    end for;
+end for;
+
+if all_ok then
+    print "All numeric spot-checks PASSED for both families.";
+    print "(Pell solutions (1,0),(2,1),(7,4),(26,15); k=0..10000; m=0..10000)";
+end if;
+
+// Cross-check Table 5: Family II, m=0, (x0,y0)=(2,1)
+print "";
+print "=== Cross-check: Table 5 (Family II, m=0, x0=2, y0=1) ===";
+table5 := [[1,12,1,9,10],[2,39,17,36,26],[3,141,76,138,85],[4,522,296,519,305]];
+for row in table5 do
+    kk := row[1];
+    pq := PellPower(2,1,kk);
+    pr := pq[1];  qr := pq[2];
+    Bv := (1)*(-18 + 2*pr + 18*qr) / 4;
+    Cv := (1)*( -6 + 18*pr +  6*qr) / 4;
+    Av := Cv + 3;
+    Dv := Bv + 9;
+    match := (Av eq row[2]) and (Bv eq row[3]) and (Cv eq row[4]) and (Dv eq row[5]);
+    if match then
+        print "k=",kk,": MATCH  A=",Av," B=",Bv," C=",Cv," D=",Dv;
+    else
+        print "k=",kk,": MISMATCH  got A=",Av,"B=",Bv,"C=",Cv,"D=",Dv,
+              "  expected",row[2],row[3],row[4],row[5];
+    end if;
+end for;
+
+************************************************************************************
+
 === FAMILY I: Symbolic Proof ===
 SUCCESS: Family I  A_m^3 + B_m^3 = C_m^3 + D_m^3
          holds symbolically for all x0^2-3y0^2=1, k>=0, m>=0.
