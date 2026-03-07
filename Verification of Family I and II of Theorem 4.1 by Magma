@@ -182,6 +182,10 @@ for row in table5 do
     end if;
 end for;
 
+
+
+
+Below is the outcome of running the above code on Magma.
 ************************************************************************************
 
 === FAMILY I: Symbolic Proof ===
