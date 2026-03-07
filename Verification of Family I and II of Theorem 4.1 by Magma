@@ -1,0 +1,18 @@
+=== FAMILY I: Symbolic Proof ===
+SUCCESS: Family I  A_m^3 + B_m^3 = C_m^3 + D_m^3
+         holds symbolically for all x0^2-3y0^2=1, k>=0, m>=0.
+
+=== FAMILY II: Symbolic Proof ===
+SUCCESS: Family II  A_m^3 + B_m^3 = C_m^3 + D_m^3
+         holds symbolically for all x0^2-3y0^2=1, k>=0, m>=0.
+
+=== Numeric spot-checks (both families) ===
+All numeric spot-checks PASSED for both families.
+(Pell solutions (1,0),(2,1),(7,4),(26,15); k=0..10000; m=0..10000)
+
+=== Cross-check: Table 5 (Family II, m=0, x0=2, y0=1) ===
+k= 1 : MATCH  A= 12  B= 1  C= 9  D= 10
+k= 2 : MATCH  A= 39  B= 17  C= 36  D= 26
+k= 3 : MATCH  A= 141  B= 76  C= 138  D= 85
+k= 4 : MATCH  A= 522  B= 296  C= 519  D= 305
+
