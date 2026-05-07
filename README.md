@@ -21,7 +21,7 @@ The case for $m = 1$ appears on the On-Line Encyclopedia of Integer Sequences wi
 
 The case for $m = 2$ is accepted to the On-Line Encyclopedia of Integer Sequences with the ID: [A393694](https://oeis.org/A393694).
 
-The case for $m = 3$ is accepted to the On-Line Encyclopedia of Integer Sequences with the ID: [A395378](https://oeis.org/A395378).
+The case, $m = 3$  is the latest sequence to be accepted to the On-Line Encyclopedia of Integer Sequences with the ID: [A395378](https://oeis.org/A395378).
 
 
 This repository also contains [a folder](https://github.com/JAgbanwa/Tabular-results-of-taxicab-numbers/tree/main/Magma%20verification%20of%20m%20%3D%202%2C...%2C8.) of Magma verifications of the families of taxicab numbers for each case of $m$ from $m = 2,...,8$
