@@ -1,5 +1,5 @@
 // ============================================================
-// Magma proof of Theorem 4.1 — CORRECTED VERSION
+// Magma proof of Theorem 6.1 — CORRECTED VERSION
 // Key fix: do NOT pre-scale by 4/s. Instead represent the full
 // un-scaled quantities (multiplied by 4 to clear denominators)
 // as elements of QR = Z[s,p,q]/(p^2-3q^2-1), then verify
